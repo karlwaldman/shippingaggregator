@@ -9,6 +9,7 @@ yarn.lock
 dist/
 build/
 out/
+.next/
 *.o
 *.exe
 *.dll
