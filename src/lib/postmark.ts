@@ -1,4 +1,5 @@
 // Real Postmark service integration
+import { generateEmailFooter, isUnsubscribed } from './unsubscribe'
 
 interface EmailData {
   email: string
@@ -31,6 +32,11 @@ export async function subscribeToNewsletter(data: EmailData): Promise<EmailRespo
     
     if (!data.company || data.company.length < 2) {
       return { success: false, error: 'Company name is required' }
+    }
+
+    // Check if email is unsubscribed
+    if (await isUnsubscribed(data.email)) {
+      return { success: false, error: 'This email address has unsubscribed from our communications' }
     }
 
     // Send notification email to us
@@ -76,8 +82,7 @@ Signed up at: ${new Date().toISOString()}
         From: FROM_EMAIL,
         To: data.email,
         Subject: 'Welcome to FreightFlow - Manufacturing Freight Calculator Waitlist',
-        TextBody: `
-Hi there,
+        TextBody: `Hi there,
 
 Thanks for joining the FreightFlow waitlist! You're now in line to get early access to our manufacturing freight calculator launching in Q1 2025.
 
@@ -90,12 +95,7 @@ What you can expect:
 We'll keep you updated on our progress. In the meantime, if you have any questions about freight optimization for ${data.company}, feel free to reply to this email.
 
 Best regards,
-The FreightFlow Team
-
----
-FreightFlow - Manufacturing Freight Optimization
-Built specifically for manufacturing SMBs
-        `,
+The FreightFlow Team${generateEmailFooter(data.email)}`,
       }),
     })
 
