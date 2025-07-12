@@ -1,0 +1,48 @@
+# AI Coding Rules for Shipping Aggregator
+
+## Project Context
+This is a shipping aggregator application that helps users compare and select shipping options across multiple carriers.
+
+## Code Style & Standards
+- Use TypeScript for type safety
+- Follow functional programming patterns where possible
+- Prefer composition over inheritance
+- Use descriptive variable and function names
+- Write self-documenting code with minimal comments
+- Use consistent indentation (2 spaces)
+
+## File Organization
+- Group related functionality into modules
+- Keep components small and focused
+- Use barrel exports (index.ts files) for clean imports
+- Place types in dedicated type files when shared
+
+## Error Handling
+- Always handle errors gracefully
+- Use try-catch blocks for async operations
+- Provide meaningful error messages
+- Log errors with appropriate context
+
+## Testing
+- Write unit tests for business logic
+- Test error scenarios
+- Mock external dependencies
+- Use descriptive test names
+
+## Performance
+- Lazy load components when appropriate
+- Optimize database queries
+- Cache frequently accessed data
+- Monitor bundle size
+
+## Security
+- Validate all inputs
+- Sanitize user data
+- Use environment variables for secrets
+- Follow OWASP guidelines
+
+## AI Assistance Guidelines
+- Be explicit about requirements and constraints
+- Provide context for business logic
+- Ask for clarification when requirements are ambiguous
+- Break down complex tasks into smaller steps
