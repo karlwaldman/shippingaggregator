@@ -83,27 +83,49 @@ export async function validateAddress(request: AddressValidationRequest): Promis
 
     const data = await response.json()
     
+    console.log('FedEx API response:', JSON.stringify(data, null, 2))
+    
     if (data.output?.resolvedAddresses?.[0]) {
       const resolved = data.output.resolvedAddresses[0]
       const address = resolved.address
       
+      // Check if address was actually resolved/validated
+      const isValidAddress = resolved.classification && 
+                           (resolved.classification === 'BUSINESS' || 
+                            resolved.classification === 'RESIDENTIAL' ||
+                            resolved.classification === 'MIXED')
+      
       return {
-        isValid: resolved.classification === 'BUSINESS' || resolved.classification === 'RESIDENTIAL',
-        standardized: {
+        isValid: isValidAddress,
+        standardized: isValidAddress ? {
           street: address.streetLines?.[0] || request.street,
           city: address.city || request.city,
           state: address.stateOrProvinceCode || request.state,
           zip: address.postalCode || request.zip,
           country: address.countryCode || 'US'
-        },
-        confidence: resolved.classification ? 'HIGH' : 'MEDIUM',
-        deliverable: resolved.deliverable !== false
+        } : undefined,
+        confidence: resolved.classification ? 'HIGH' : 'LOW',
+        deliverable: resolved.deliverable !== false,
+        suggestions: !isValidAddress ? [
+          'Address could not be verified',
+          'Please check spelling and format',
+          'Ensure all required fields are complete'
+        ] : undefined
+      }
+    }
+
+    // Check for errors in response
+    if (data.errors && data.errors.length > 0) {
+      const errorMessages = data.errors.map((err: any) => err.message || 'Unknown error')
+      return {
+        isValid: false,
+        suggestions: errorMessages
       }
     }
 
     return {
       isValid: false,
-      suggestions: ['Please check the address and try again']
+      suggestions: ['Address could not be validated', 'Please verify the address and try again']
     }
   } catch (error) {
     console.error('Address validation error:', error)
@@ -113,23 +135,71 @@ export async function validateAddress(request: AddressValidationRequest): Promis
 
 // Mock data for when API is unavailable
 export function getMockAddressValidation(request: AddressValidationRequest): AddressValidationResult {
-  // Simple validation for demo purposes
-  const isValid = request.street.length > 5 && 
-                  request.city.length > 2 && 
-                  request.state.length === 2 && 
-                  /^\d{5}(-\d{4})?$/.test(request.zip)
+  const street = request.street.toLowerCase()
+  const city = request.city.toLowerCase()
+  const state = request.state.toUpperCase()
+  const zip = request.zip
 
-  if (isValid) {
+  // Check for obviously invalid patterns
+  const invalidPatterns = [
+    /fake|test|invalid|nowhere|example/i,
+    /123.*fake/i,
+    /000.*street/i
+  ]
+  
+  const invalidStates = ['ZZ', 'XX', 'AA', '00']
+  const invalidZips = ['00000', '99999', '12345'] // Common test zips
+
+  // Check for invalid patterns
+  const hasInvalidPattern = invalidPatterns.some(pattern => 
+    pattern.test(street) || pattern.test(city)
+  )
+  
+  const hasInvalidState = invalidStates.includes(state)
+  const hasInvalidZip = invalidZips.includes(zip) || !/^\d{5}(-\d{4})?$/.test(zip)
+  
+  // Known valid test addresses for demo
+  const knownValidAddresses = [
+    { street: '123 main st', city: 'indianapolis', state: 'IN', zip: '46201' },
+    { street: '1600 pennsylvania ave', city: 'washington', state: 'DC', zip: '20500' },
+    { street: '1 infinite loop', city: 'cupertino', state: 'CA', zip: '95014' }
+  ]
+  
+  const isKnownValid = knownValidAddresses.some(addr => 
+    street.includes(addr.street.split(' ')[1]) && // Check for "main", "pennsylvania", "infinite"
+    city.includes(addr.city) &&
+    state === addr.state
+  )
+
+  // Basic format validation
+  const hasBasicFormat = request.street.length > 3 && 
+                        request.city.length > 1 && 
+                        request.state.length === 2 && 
+                        /^\d{5}(-\d{4})?$/.test(request.zip)
+
+  if (hasInvalidPattern || hasInvalidState || hasInvalidZip) {
+    return {
+      isValid: false,
+      suggestions: [
+        hasInvalidPattern ? 'Address appears to contain test/invalid data' : '',
+        hasInvalidState ? 'Invalid state code - use 2-letter postal abbreviation' : '',
+        hasInvalidZip ? 'Invalid ZIP code format or known test ZIP' : '',
+        'Please enter a real US address'
+      ].filter(Boolean)
+    }
+  }
+
+  if (isKnownValid || (hasBasicFormat && !hasInvalidPattern)) {
     return {
       isValid: true,
       standardized: {
-        street: request.street.toUpperCase(),
-        city: request.city.toUpperCase(),
-        state: request.state.toUpperCase(),
+        street: request.street.replace(/\b\w/g, l => l.toUpperCase()), // Title case
+        city: request.city.replace(/\b\w/g, l => l.toUpperCase()),
+        state: state,
         zip: request.zip,
         country: 'US'
       },
-      confidence: 'HIGH',
+      confidence: isKnownValid ? 'HIGH' : 'MEDIUM',
       deliverable: true
     }
   }
@@ -138,8 +208,8 @@ export function getMockAddressValidation(request: AddressValidationRequest): Add
     isValid: false,
     suggestions: [
       'Check street address spelling',
-      'Verify city and state combination',
-      'Ensure ZIP code is 5 or 9 digits'
+      'Verify city and state combination', 
+      'Ensure ZIP code matches the city/state'
     ]
   }
 }

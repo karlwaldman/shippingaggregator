@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { z } from 'zod'
-import { validateAddress, getMockAddressValidation } from '@/lib/fedex-address'
+import { validateAddress } from '@/lib/fedex-address'
 import { logEvent } from '@/lib/analytics'
 
 // Request validation
@@ -24,30 +24,31 @@ export default async function handler(
     // Validate request
     const validatedData = addressSchema.parse(req.body)
     
-    // Check if we should use mock data
-    const useMockData = process.env.NEXT_PUBLIC_USE_MOCK_DATA === 'true' || 
-                       !process.env.FEDEX_API_KEY || 
-                       !process.env.FEDEX_SECRET_KEY
-    
-    let result
-    
-    if (useMockData) {
-      console.log('Using mock address validation')
-      result = getMockAddressValidation(validatedData)
-      result = { ...result, isMockData: true }
-    } else {
-      console.log('Using real FedEx address validation')
-      result = await validateAddress(validatedData)
-      result = { ...result, isMockData: false }
+    // Check if we have FedEx API credentials
+    if (!process.env.FEDEX_API_KEY || !process.env.FEDEX_SECRET_KEY) {
+      return res.status(503).json({
+        success: false,
+        error: 'Address validation service unavailable',
+        message: 'FedEx API credentials not configured'
+      })
     }
     
+    console.log('🌐 Using real FedEx address validation for:', {
+      street: validatedData.street,
+      city: validatedData.city,
+      state: validatedData.state,
+      zip: validatedData.zip
+    })
+    
+    const result = await validateAddress(validatedData)
+    
     // Log the validation request
-    logEvent('API', 'Address Validation', `${result.isValid ? 'Valid' : 'Invalid'} - ${useMockData ? 'Mock' : 'Live'}`)
+    logEvent('API', 'Address Validation', `${result.isValid ? 'Valid' : 'Invalid'} - Live`)
     
     res.status(200).json({
       success: true,
       result,
-      isMockData: useMockData
+      isMockData: false
     })
     
   } catch (error) {
