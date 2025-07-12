@@ -14,11 +14,16 @@ interface EmailResponse {
   error?: string
 }
 
-const POSTMARK_API_TOKEN = process.env.POSTMARK_API_TOKEN || '24e8278c-f9ea-46e8-bab6-d305cd74121c'
+const POSTMARK_API_TOKEN = process.env.POSTMARK_API_TOKEN
 const FROM_EMAIL = process.env.POSTMARK_FROM_EMAIL || 'noreply@freightflow.com'
 
 export async function subscribeToNewsletter(data: EmailData): Promise<EmailResponse> {
   try {
+    // Check if Postmark token is configured
+    if (!POSTMARK_API_TOKEN) {
+      return { success: false, error: 'Email service not configured' }
+    }
+
     // Validation
     if (!data.email || !data.email.includes('@')) {
       return { success: false, error: 'Invalid email address' }
@@ -38,7 +43,7 @@ export async function subscribeToNewsletter(data: EmailData): Promise<EmailRespo
       },
       body: JSON.stringify({
         From: FROM_EMAIL,
-        To: 'leads@freightflow.com', // Change to your actual email
+        To: 'karl.waldman+shipping@gmail.com',
         Subject: `New Manufacturing Lead: ${data.company}`,
         TextBody: `
 New freight calculator waitlist signup:
