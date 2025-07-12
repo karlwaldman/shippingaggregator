@@ -80,7 +80,7 @@ export function FreightWaitlist({ className = '' }: FreightWaitlistProps) {
           </div>
         </div>
         <h1 className="heading-xl mb-4">Manufacturing Freight Calculator</h1>
-        <p className="heading-sm text-primary mb-4">Launching Q1 2025</p>
+        <p className="heading-sm text-primary mb-4">Launching August 2025</p>
         <p className="body-lg text-gray-600 max-w-2xl mx-auto">
           Get instant LTL & FTL rates from 20+ carriers with our manufacturing-first freight platform. 
           Join the waitlist to be first to access the calculator and exclusive early pricing.
@@ -259,19 +259,19 @@ function WaitlistBenefits() {
 function LaunchTimeline() {
   const timeline = [
     {
-      date: 'January 2025',
+      date: 'August 2025',
       title: 'Beta Launch',
       description: 'Waitlist members get first access to calculator and rate comparison',
       status: 'upcoming',
     },
     {
-      date: 'February 2025',
+      date: 'September 2025',
       title: 'ERP Integration',
       description: 'NetSuite, Dynamics, and SAP Business One integrations go live',
       status: 'upcoming',
     },
     {
-      date: 'March 2025',
+      date: 'October 2025',
       title: 'Full Platform',
       description: 'Complete freight management platform with advanced analytics',
       status: 'upcoming',
@@ -305,7 +305,7 @@ function WaitlistThankYou() {
       <h1 className="heading-lg mb-4">Welcome to the Waitlist!</h1>
       <p className="body-lg text-gray-600 mb-6">
         You're now #<span className="font-bold text-primary">247</span> on our waitlist. 
-        We'll email you as soon as the freight calculator launches in Q1 2025.
+        We'll email you as soon as the freight calculator launches in August 2025.
       </p>
       <div className="bg-gray-50 rounded-lg p-6">
         <h3 className="font-semibold text-gray-900 mb-2">What happens next?</h3>

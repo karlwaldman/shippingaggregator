@@ -20,7 +20,9 @@
     "db:migrate": "prisma migrate dev",
     "db:studio": "prisma studio",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "submit-sitemap": "node scripts/submit-sitemap.js",
+    "postdeploy": "npm run submit-sitemap"
   },
   "keywords": [
     "shipping",
