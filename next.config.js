@@ -2,9 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    appDir: false, // Using pages directory for now
-  },
+  // Using pages directory for now
   env: {
     NEXT_PUBLIC_APP_NAME: 'FreightFlow',
     NEXT_PUBLIC_APP_DESCRIPTION: 'Manufacturing SMB Freight Optimization Platform',

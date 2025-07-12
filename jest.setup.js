@@ -36,17 +36,17 @@ jest.mock('next/image', () => ({
 process.env.NODE_ENV = 'test'
 process.env.NEXT_PUBLIC_APP_URL = 'http://localhost:3000'
 
-// Mock Postmark (email service)
-jest.mock('@/lib/postmark', () => ({
+// Mock Postmark (email service) - using relative path for setup
+jest.mock('./src/lib/postmark', () => ({
   sendEmail: jest.fn().mockResolvedValue({ MessageID: 'test-id' }),
   subscribeToNewsletter: jest.fn().mockResolvedValue({ success: true }),
 }))
 
-// Mock Vercel Analytics
-jest.mock('@vercel/analytics/react', () => ({
-  Analytics: () => null,
-  track: jest.fn(),
-}))
+// Mock Vercel Analytics - not needed for local testing
+// jest.mock('@vercel/analytics/react', () => ({
+//   Analytics: () => null,
+//   track: jest.fn(),
+// }))
 
 // Global test utilities
 global.mockFreightRates = [

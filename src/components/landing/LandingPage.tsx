@@ -33,10 +33,22 @@ export function LandingPage({ className = '' }: LandingPageProps) {
   const onSubmit = async (data: EmailCaptureForm) => {
     setIsSubmitting(true)
     try {
-      // Mock API call for now - will integrate with Postmark later
-      await new Promise(resolve => setTimeout(resolve, 1000))
-      console.log('Form submitted:', data)
-      setIsSubmitted(true)
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+      
+      if (result.success) {
+        setIsSubmitted(true)
+      } else {
+        console.error('Submission error:', result.error)
+        // Could show error state here
+      }
     } catch (error) {
       console.error('Submission error:', error)
     } finally {
@@ -164,7 +176,7 @@ function EmailCaptureForm({ onSubmit, isSubmitting, errors, register }: any) {
         disabled={isSubmitting}
         className="w-full manufacturing-button large-touch-target text-lg py-4"
       >
-        {isSubmitting ? 'Processing...' : 'Get Free Freight Calculator'}
+        {isSubmitting ? 'Processing...' : 'Join Waitlist - Get Early Access'}
       </button>
       
       <p className="text-xs text-gray-500 text-center">
@@ -179,41 +191,45 @@ function SocialProofSection() {
     <section className="py-16 bg-gray-50">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center mb-12">
-          <h2 className="heading-md mb-4">Trusted by Manufacturing Leaders</h2>
+          <h2 className="heading-md mb-4">Built for Manufacturing</h2>
+          <p className="body-lg text-gray-600">
+            Designed specifically for the unique freight needs of manufacturing SMBs
+          </p>
         </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <TestimonialCard
-            quote="We saved $25,000 in the first 6 months. The ERP integration was seamless."
-            author="Sarah Chen"
-            title="Operations Manager"
-            company="Precision Machining Co."
-            savings="23% freight savings"
-          />
-          <TestimonialCard
-            quote="Finally, a shipping platform that understands manufacturing freight needs."
-            author="Mike Rodriguez"
-            title="Plant Manager"
-            company="Midwest Assembly Inc."
-            savings="18% cost reduction"
-          />
-          <TestimonialCard
-            quote="The compliance automation alone is worth the investment."
-            author="Jennifer Park"
-            title="Logistics Director"
-            company="Chemical Solutions LLC"
-            savings="27% efficiency gain"
-          />
+          <div className="freight-rate-card text-center">
+            <h3 className="heading-sm mb-3 text-primary">15-25% Savings Potential</h3>
+            <p className="body-base text-gray-600">
+              Industry benchmarks show manufacturing SMBs typically overpay for freight by 15-25% 
+              due to limited carrier relationships and manual processes.
+            </p>
+          </div>
+          <div className="freight-rate-card text-center">
+            <h3 className="heading-sm mb-3 text-primary">Freight-First Architecture</h3>
+            <p className="body-base text-gray-600">
+              Unlike parcel-focused aggregators, our platform is built specifically 
+              for LTL, FTL, and specialized manufacturing freight requirements.
+            </p>
+          </div>
+          <div className="freight-rate-card text-center">
+            <h3 className="heading-sm mb-3 text-primary">Manufacturing ERP Ready</h3>
+            <p className="body-base text-gray-600">
+              Native integration capabilities for NetSuite, SAP Business One, 
+              Microsoft Dynamics, and other manufacturing ERP systems.
+            </p>
+          </div>
         </div>
         
-        {/* Customer Logos */}
+        {/* Manufacturing Focus */}
         <div className="mt-16 text-center">
-          <p className="text-sm text-gray-600 mb-8">Trusted by 200+ manufacturing companies</p>
-          <div className="flex justify-center items-center space-x-8 opacity-60">
-            <img src="/api/placeholder/120/40" alt="Customer logo" className="h-8" />
-            <img src="/api/placeholder/120/40" alt="Customer logo" className="h-8" />
-            <img src="/api/placeholder/120/40" alt="Customer logo" className="h-8" />
-            <img src="/api/placeholder/120/40" alt="Customer logo" className="h-8" />
+          <p className="text-sm text-gray-600 mb-8">Designed for manufacturing companies like yours</p>
+          <div className="flex justify-center items-center space-x-8 text-gray-400">
+            <span className="text-sm">Discrete Manufacturing</span>
+            <span className="text-sm">•</span>
+            <span className="text-sm">Process Manufacturing</span>
+            <span className="text-sm">•</span>
+            <span className="text-sm">Mixed-Mode Operations</span>
           </div>
         </div>
       </div>
@@ -348,27 +364,27 @@ function TrustSection() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="text-center">
           <p className="body-sm text-gray-600 mb-8">
-            Enterprise-grade security and compliance
+            Built with enterprise-grade security standards
           </p>
           <div className="flex justify-center items-center space-x-12">
             <div className="text-sm text-gray-500">
-              <strong>SOC 2</strong> Type II Compliant
+              <strong>SOC 2</strong> Specification Standards
             </div>
             <div className="text-sm text-gray-500">
-              <strong>GDPR</strong> Ready
+              <strong>GDPR</strong> Compliant Design
             </div>
             <div className="text-sm text-gray-500">
-              <strong>99.9%</strong> Uptime SLA
+              <strong>Enterprise</strong> Security Architecture
             </div>
           </div>
           
           <div className="mt-12">
-            <p className="body-sm text-gray-600 mb-6">Integrated with leading freight carriers</p>
+            <p className="body-sm text-gray-600 mb-6">Designed for integration with major freight carriers</p>
             <div className="flex justify-center items-center space-x-8 text-gray-400">
               <span className="font-semibold">FedEx Freight</span>
               <span className="font-semibold">UPS Freight</span>
-              <span className="font-semibold">XPO</span>
-              <span className="font-semibold">YRC</span>
+              <span className="font-semibold">XPO Logistics</span>
+              <span className="font-semibold">Regional Carriers</span>
             </div>
           </div>
         </div>
@@ -382,14 +398,26 @@ function ThankYouSection() {
     <div className="min-h-screen bg-gradient-to-br from-success/10 to-white flex items-center justify-center">
       <div className="max-w-md text-center">
         <CheckIcon className="h-16 w-16 text-success mx-auto mb-6" />
-        <h1 className="heading-lg mb-4">Thank You!</h1>
+        <h1 className="heading-lg mb-4">Welcome to the Waitlist!</h1>
         <p className="body-lg text-gray-600 mb-6">
-          We'll email you the Manufacturing Freight Calculator within the next hour, 
-          along with a custom ROI analysis for your company.
+          You're now on our exclusive waitlist for the Manufacturing Freight Calculator 
+          launching Q1 2025. We'll email you as soon as early access begins.
         </p>
-        <p className="body-sm text-gray-500">
-          Check your email and add us to your contacts to ensure delivery.
-        </p>
+        <div className="bg-gray-50 rounded-lg p-4 mb-6">
+          <h3 className="font-semibold text-gray-900 mb-2">What happens next?</h3>
+          <ul className="text-sm text-gray-600 space-y-1 text-left">
+            <li>• Welcome email with freight optimization tips</li>
+            <li>• Monthly development updates</li>
+            <li>• Early access notification (2 weeks before launch)</li>
+            <li>• Exclusive 6 months free pricing for early adopters</li>
+          </ul>
+        </div>
+        <a 
+          href="/calculator"
+          className="manufacturing-button-secondary"
+        >
+          View Waitlist Details
+        </a>
       </div>
     </div>
   )
