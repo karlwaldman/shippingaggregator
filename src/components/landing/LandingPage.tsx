@@ -82,29 +82,9 @@ export function LandingPage({ className = '' }: LandingPageProps) {
               Built specifically for manufacturers who need reliable, cost-effective shipping solutions.
             </p>
           </div>
-                <div className="text-2xl font-bold text-success">216%</div>
-              </div>
-            </div>
-            
-            <EmailCaptureForm onSubmit={handleSubmit(onSubmit)} isSubmitting={isSubmitting} errors={errors} register={register} />
-          </div>
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <SocialProofSection />
-
-      {/* Problem/Solution Section */}
-      <ProblemSolutionSection />
-
-      {/* Features Section */}
-      <FeaturesSection />
-
-      {/* Trust Indicators */}
-      <TrustSection />
-
-      {/* Footer */}
-      <FooterSection />
     </div>
   )
 }
