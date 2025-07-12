@@ -1,6 +1,6 @@
-# Shipping Aggregator
+# ShipNode
 
-A comprehensive shipping aggregation platform that helps users compare shipping rates, delivery times, and services across multiple carriers.
+The central hub for multi-carrier shipping optimization. ShipNode helps businesses compare shipping rates, delivery times, and services across multiple carriers from one unified platform.
 
 ## 🚀 Features
 
@@ -33,7 +33,7 @@ A comprehensive shipping aggregation platform that helps users compare shipping 
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd shippingaggregator
+   cd shipnode
    ```
 
 2. **Install dependencies**
@@ -133,10 +133,10 @@ src/
 ### Docker
 ```bash
 # Build image
-docker build -t shipping-aggregator .
+docker build -t shipnode .
 
 # Run container
-docker run -p 3000:3000 shipping-aggregator
+docker run -p 3000:3000 shipnode
 ```
 
 ### Using Docker Compose
@@ -164,7 +164,7 @@ docker-compose up -d
 
 ## 🆘 Support
 
-For support, email support@shippingaggregator.com or create an issue in this repository.
+For support, email support@shipnode.io or create an issue in this repository.
 
 ## 🗺️ Roadmap
 

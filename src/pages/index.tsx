@@ -6,25 +6,25 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>FreightFlow - Manufacturing Freight Optimization Platform</title>
+        <title>ShipNode - Multi-Carrier Shipping Optimization Platform</title>
         <meta 
           name="description" 
-          content="Join the waitlist for our manufacturing freight optimization platform launching Q1 2025. Built specifically for manufacturing SMBs to save 15-25% on LTL & FTL shipping." 
+          content="Compare shipping rates across all major carriers from one platform. ShipNode helps businesses save 15-30% on shipping costs with real-time rate comparison and optimization." 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         
-        {/* Manufacturing-specific meta tags */}
-        <meta name="keywords" content="manufacturing freight, LTL shipping, FTL freight, ERP integration, manufacturing logistics, freight aggregator, industrial shipping" />
-        <meta property="og:title" content="FreightFlow - Manufacturing Freight Optimization" />
-        <meta property="og:description" content="Save 15-25% on manufacturing freight with our LTL/FTL aggregation platform built for SMB manufacturers." />
+        {/* Shipping optimization meta tags */}
+        <meta name="keywords" content="shipping rates, carrier comparison, FedEx UPS USPS DHL, shipping optimization, multi-carrier platform, shipping aggregator, ecommerce shipping" />
+        <meta property="og:title" content="ShipNode - Multi-Carrier Shipping Optimization" />
+        <meta property="og:description" content="Compare shipping rates across all major carriers and save 15-30% on shipping costs with ShipNode's optimization platform." />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://freightflow.com" />
+        <meta property="og:url" content="https://shipnode.io" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FreightFlow - Manufacturing Freight Optimization" />
-        <meta name="twitter:description" content="Save 15-25% on manufacturing freight with our LTL/FTL aggregation platform built for SMB manufacturers." />
+        <meta name="twitter:title" content="ShipNode - Multi-Carrier Shipping Optimization" />
+        <meta name="twitter:description" content="Compare shipping rates across all major carriers and save 15-30% on shipping costs with ShipNode." />
         
         {/* Schema.org structured data */}
         <script
@@ -33,23 +33,48 @@ const Home: NextPage = () => {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
-              "name": "FreightFlow",
-              "description": "Manufacturing freight optimization platform for SMB manufacturers",
+              "name": "ShipNode",
+              "description": "Multi-carrier shipping optimization platform for businesses of all sizes",
+              "url": "https://shipnode.io",
               "category": "Business Software",
               "operatingSystem": "Web-based",
-              "offers": {
-                "@type": "Offer",
-                "price": "149",
-                "priceCurrency": "USD",
-                "priceSpecification": {
-                  "@type": "UnitPriceSpecification",
-                  "billingDuration": "P1M"
+              "applicationCategory": "BusinessApplication",
+              "softwareVersion": "1.0.0",
+              "publisher": {
+                "@type": "Organization",
+                "name": "MetiriLabs, LLC",
+                "url": "https://shipnode.io",
+                "logo": "https://shipnode.io/logo.png",
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "contactType": "customer service",
+                  "email": "hello@shipnode.io"
                 }
               },
-              "applicationCategory": "BusinessApplication",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD",
+                "description": "Free tier with generous limits",
+                "availability": "https://schema.org/InStock"
+              },
+              "featureList": [
+                "Multi-carrier rate comparison",
+                "Real-time shipping quotes", 
+                "FedEx, UPS, USPS, DHL integration",
+                "Shipping cost optimization",
+                "Free rate calculator"
+              ],
               "audience": {
                 "@type": "Audience",
-                "audienceType": "Manufacturing SMBs"
+                "audienceType": "E-commerce & SMB Businesses"
+              },
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "5.0",
+                "ratingCount": "1",
+                "bestRating": "5",
+                "worstRating": "1"
               }
             })
           }}

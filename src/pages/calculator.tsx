@@ -6,18 +6,18 @@ const CalculatorPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Manufacturing Freight Calculator Waitlist - FreightFlow</title>
+        <title>Free Shipping Rate Calculator - ShipNode</title>
         <meta 
           name="description" 
-          content="Join the waitlist for our manufacturing freight calculator launching Q1 2025. Get early access to instant LTL & FTL rates from 20+ carriers." 
+          content="Free shipping rate calculator - Compare rates from FedEx, UPS, USPS, DHL and more carriers instantly. No signup required." 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         
-        {/* Additional meta for waitlist landing page */}
-        <meta name="keywords" content="manufacturing freight calculator, LTL rates, FTL freight, early access, manufacturing logistics" />
-        <meta property="og:title" content="Manufacturing Freight Calculator - Early Access Waitlist" />
-        <meta property="og:description" content="Join 500+ manufacturing companies waiting for our freight calculator. Launching Q1 2025 with exclusive early pricing." />
+        {/* Additional meta for free calculator */}
+        <meta name="keywords" content="free shipping calculator, shipping rates, FedEx UPS USPS rates, shipping cost calculator, carrier comparison" />
+        <meta property="og:title" content="Free Shipping Rate Calculator - ShipNode" />
+        <meta property="og:description" content="Compare shipping rates from all major carriers instantly. Free shipping calculator with no signup required." />
       </Head>
       
       <div className="min-h-screen bg-gray-50 py-12">

@@ -45,7 +45,7 @@ export async function subscribeToNewsletter(data: EmailData): Promise<EmailRespo
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'X-Postmark-Server-Token': POSTMARK_API_TOKEN,
+        'X-Postmark-Server-Token': POSTMARK_API_TOKEN!,
       },
       body: JSON.stringify({
         From: FROM_EMAIL,
@@ -76,7 +76,7 @@ Signed up at: ${new Date().toISOString()}
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'X-Postmark-Server-Token': POSTMARK_API_TOKEN,
+        'X-Postmark-Server-Token': POSTMARK_API_TOKEN!,
       },
       body: JSON.stringify({
         From: FROM_EMAIL,
@@ -126,7 +126,7 @@ export async function sendEmail(to: string, subject: string, content: string): P
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'X-Postmark-Server-Token': POSTMARK_API_TOKEN,
+        'X-Postmark-Server-Token': POSTMARK_API_TOKEN!,
       },
       body: JSON.stringify({
         From: FROM_EMAIL,

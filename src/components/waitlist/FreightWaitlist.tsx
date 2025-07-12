@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { TruckIcon, ClockIcon, CheckIcon } from '@heroicons/react/24/outline'
+import { logFormSubmission, logEvent } from '@/lib/analytics'
 
 // Form validation schema
 const waitlistSchema = z.object({
@@ -46,8 +47,15 @@ export function FreightWaitlist({ className = '' }: FreightWaitlistProps) {
       
       if (result.success) {
         setIsSubmitted(true)
+        // Track calculator waitlist submission
+        logFormSubmission('calculator', {
+          industry: data.industry,
+          monthlyShipments: data.monthlyShipments,
+          currentSpend: data.currentSpend
+        })
       } else {
         console.error('Submission error:', result.error)
+        logEvent('Form', 'Error', 'calculator')
         // Could show error state here
       }
     } catch (error) {

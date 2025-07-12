@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import Link from 'next/link'
 import { CheckIcon, TruckIcon, CogIcon, ChartBarIcon } from '@heroicons/react/24/outline'
+import { logFormSubmission, logEvent } from '@/lib/analytics'
 
 // Form validation schema
 const emailCaptureSchema = z.object({
@@ -46,8 +47,14 @@ export function LandingPage({ className = '' }: LandingPageProps) {
       
       if (result.success) {
         setIsSubmitted(true)
+        // Track successful form submission
+        logFormSubmission('waitlist', {
+          industry: data.industry,
+          monthlyShipments: data.monthlyShipments
+        })
       } else {
         console.error('Submission error:', result.error)
+        logEvent('Form', 'Error', 'waitlist')
         // Could show error state here
       }
     } catch (error) {
@@ -434,13 +441,13 @@ function FooterSection() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">FreightFlow</h3>
+            <h3 className="text-xl font-bold mb-4">ShipNode</h3>
             <p className="text-gray-300 mb-4">
               Manufacturing freight optimization platform built specifically for SMB manufacturers. 
               Save 15-25% on LTL & FTL shipping with our freight-first aggregation platform.
             </p>
             <div className="text-gray-400 text-sm">
-              <p>FreightFlow LLC</p>
+              <p>MetiriLabs, LLC</p>
               <p>123 Manufacturing Blvd</p>
               <p>Industrial City, IN 46201</p>
               <p className="mt-2">hello@machineshop.directory</p>
@@ -473,7 +480,7 @@ function FooterSection() {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 FreightFlow LLC. All rights reserved.
+              © 2025 MetiriLabs, LLC. All rights reserved.
             </div>
             <div className="flex space-x-6 text-sm text-gray-400">
               <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import { CheckIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { logEmailInteraction } from '@/lib/analytics'
 
 interface UnsubscribePageProps {
   className?: string
@@ -40,6 +41,8 @@ export default function UnsubscribePage({ className = '' }: UnsubscribePageProps
 
       if (result.success) {
         setStatus('success')
+        // Track successful unsubscribe
+        logEmailInteraction('unsubscribe')
       } else {
         setStatus('error')
         setErrorMessage(result.error || 'Failed to unsubscribe')

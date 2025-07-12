@@ -6,13 +6,26 @@ Add these environment variables in your Vercel project dashboard:
 
 ### 1. Postmark Email Service
 ```
-POSTMARK_API_TOKEN=24e8278c-f9ea-46e8-bab6-d305cd74121c
-POSTMARK_FROM_EMAIL=hello@machineshop.directory
+POSTMARK_API_TOKEN=your_postmark_api_token_from_postmark_dashboard
+POSTMARK_FROM_EMAIL=hello@shipnode.io
 ```
 
 ### 2. Unsubscribe Security
 ```
 UNSUBSCRIBE_SECRET=manufacturing-freight-unsubscribe-2025-secure-key
+```
+
+### 3. Cloudflare API (Optional - for automated DNS management)
+```
+CLOUDFLARE_API_TOKEN=your_cloudflare_api_token
+CLOUDFLARE_ZONE_ID=your_shipnode_io_zone_id
+CLOUDFLARE_ACCOUNT_ID=your_cloudflare_account_id
+```
+
+### 4. Google Services (Optional)
+```
+GOOGLE_SITE_VERIFICATION=your_verification_code
+NEXT_PUBLIC_SITE_URL=https://shipnode.io
 ```
 
 ## How to Add Variables in Vercel
@@ -22,7 +35,7 @@ UNSUBSCRIBE_SECRET=manufacturing-freight-unsubscribe-2025-secure-key
 3. Click "Environment Variables" in sidebar
 4. Add each variable:
    - **Name**: POSTMARK_API_TOKEN
-   - **Value**: 24e8278c-f9ea-46e8-bab6-d305cd74121c
+   - **Value**: [Get from your Postmark account dashboard]
    - **Environment**: All (Production, Preview, Development)
 5. Repeat for POSTMARK_FROM_EMAIL and UNSUBSCRIBE_SECRET
 6. Click "Save"
