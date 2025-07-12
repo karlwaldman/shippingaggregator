@@ -69,35 +69,19 @@ export function LandingPage({ className = '' }: LandingPageProps) {
   }
 
   return (
-    <div className={`min-h-screen bg-white ${className}`}>
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 to-white">
-        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+    <div className={`bg-white ${className}`}>
+      {/* Features Section */}
+      <section id="features" className="py-24 sm:py-32">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="heading-xl text-balance mb-6">
-              Stop Overpaying for Manufacturing Freight
-            </h1>
-            <p className="body-lg mb-8 text-balance">
-              Manufacturing SMBs save <span className="font-bold text-success">15-25%</span> on 
-              LTL & FTL shipping with our freight-first aggregation platform. 
-              Get instant quotes, ERP integration, and compliance automation.
+            <h2 className="text-base font-semibold leading-7 text-blue-600">Everything you need</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              One platform for all your shipping needs
             </p>
-            
-            {/* ROI Preview */}
-            <div className="mx-auto max-w-lg mb-8 p-6 bg-white rounded-lg shadow-freight-card">
-              <h3 className="text-lg font-semibold mb-4">Sample Monthly Savings</h3>
-              <div className="grid grid-cols-2 gap-4 text-sm">
-                <div>
-                  <span className="text-gray-600">Current Spend:</span>
-                  <div className="text-xl font-bold">$25,000</div>
-                </div>
-                <div>
-                  <span className="text-gray-600">Estimated Savings:</span>
-                  <div className="text-xl font-bold text-success">$4,500</div>
-                </div>
-              </div>
-              <div className="mt-4 pt-4 border-t">
-                <span className="text-gray-600">Annual ROI:</span>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Built specifically for manufacturers who need reliable, cost-effective shipping solutions.
+            </p>
+          </div>
                 <div className="text-2xl font-bold text-success">216%</div>
               </div>
             </div>

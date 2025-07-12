@@ -6,7 +6,7 @@ function SiteMap() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://shipnode.io'
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://shipnode.io').trim()
   
   // Static pages
   const staticPages = [

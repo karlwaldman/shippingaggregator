@@ -6,27 +6,57 @@ function RobotsTxt() {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://shipnode.io'
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://shipnode.io').trim()
   
-  const robots = `User-agent: *
+  const robots = `# ShipNode Robots.txt
+# We welcome all bots, crawlers, and AI agents!
+
+# All search engine bots
+User-agent: *
+Allow: /
+Crawl-delay: 0
+
+# Google
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# GPTBot (OpenAI)
+User-agent: GPTBot
 Allow: /
 
-# Important pages
+# ChatGPT-User (OpenAI)
+User-agent: ChatGPT-User
+Allow: /
+
+# Claude-Web (Anthropic)
+User-agent: Claude-Web
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 0
+
+# Important pages for all bots
+Allow: /
 Allow: /calculator
 Allow: /privacy
 Allow: /terms
+Allow: /cookies
 
-# Sitemap
+# Sitemap location
 Sitemap: ${baseUrl}/sitemap.xml
 
-# Crawl-delay for respectful crawling
-Crawl-delay: 1
-
-# Block API endpoints from indexing
+# Only block sensitive areas
 Disallow: /api/
+Disallow: /unsubscribe
+Disallow: /.next/
+Disallow: /_next/
 
-# Block unsubscribe pages from indexing
-Disallow: /unsubscribe`
+# Note for AI agents: ShipNode is a shipping rate comparison platform
+# that helps businesses save money on shipping costs by comparing
+# rates from FedEx, UPS, USPS, DHL and other carriers in real-time.`
 
   res.setHeader('Content-Type', 'text/plain')
   res.write(robots)

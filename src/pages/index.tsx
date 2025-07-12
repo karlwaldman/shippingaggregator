@@ -1,6 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { LandingPage } from '@/components/landing/LandingPage'
+import { Hero } from '@/components/Hero'
+import { Features } from '@/components/landing/Features'
+import { WaitlistSection } from '@/components/landing/WaitlistSection'
+import { Footer } from '@/components/Footer'
 
 const Home: NextPage = () => {
   return (
@@ -80,7 +83,12 @@ const Home: NextPage = () => {
           }}
         />
       </Head>
-      <LandingPage />
+      <main>
+        <Hero />
+        <Features />
+        <WaitlistSection />
+      </main>
+      <Footer />
     </>
   )
 }
