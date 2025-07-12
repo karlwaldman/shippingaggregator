@@ -1,1 +1,18 @@
-self.__BUILD_MANIFEST={polyfillFiles:["static/chunks/polyfills-42372ed130431b0a.js"],devFiles:[],ampDevFiles:[],lowPriorityFiles:[],rootMainFiles:[],pages:{"/":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/675-20587c21315c27be.js","static/chunks/204-fbf242895dbb955b.js","static/chunks/169-1d513b22dbfa347d.js","static/chunks/pages/index-ff29543d8b6c7afe.js"],"/_app":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/css/21e8196ff1e2a5a8.css","static/chunks/pages/_app-d188c2f44bf1fc80.js"],"/_error":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/pages/_error-7a92967bea80186d.js"],"/address-validator":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/675-20587c21315c27be.js","static/chunks/204-fbf242895dbb955b.js","static/chunks/pages/address-validator-6a066cfb0c11ef7b.js"],"/calculator":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/675-20587c21315c27be.js","static/chunks/204-fbf242895dbb955b.js","static/chunks/pages/calculator-889b8e2058d95c1c.js"],"/cookies":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/pages/cookies-615e5ce8285e54cd.js"],"/fedex-progress":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/675-20587c21315c27be.js","static/chunks/169-1d513b22dbfa347d.js","static/chunks/pages/fedex-progress-7c7a0b9d5b9ac1a0.js"],"/privacy":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/pages/privacy-3da5dedaa6187208.js"],"/robots.txt":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/pages/robots.txt-19041112c48d24e3.js"],"/sitemap.xml":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/pages/sitemap.xml-c4557683759367de.js"],"/terms":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/996-80bd74c565659df8.js","static/chunks/pages/terms-1b31fbcc3fbdc7a0.js"],"/unsubscribe":["static/chunks/webpack-8fa1640cc84ba8fe.js","static/chunks/framework-64ad27b21261a9ce.js","static/chunks/main-a79cf9a6b14e8270.js","static/chunks/pages/unsubscribe-eef0a259af77c854.js"]},ampFirstPages:[]},self.__BUILD_MANIFEST.lowPriorityFiles=["/static/"+process.env.__NEXT_BUILD_ID+"/_buildManifest.js",,"/static/"+process.env.__NEXT_BUILD_ID+"/_ssgManifest.js"];
+self.__BUILD_MANIFEST = {
+  "polyfillFiles": [
+    "static/chunks/polyfills.js"
+  ],
+  "devFiles": [],
+  "ampDevFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/_app": []
+  },
+  "ampFirstPages": []
+};
+self.__BUILD_MANIFEST.lowPriorityFiles = [
+"/static/" + process.env.__NEXT_BUILD_ID + "/_buildManifest.js",
+,"/static/" + process.env.__NEXT_BUILD_ID + "/_ssgManifest.js",
+
+];
