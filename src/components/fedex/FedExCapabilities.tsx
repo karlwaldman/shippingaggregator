@@ -148,10 +148,10 @@ const capabilities: Capability[] = [
     features: [
       {
         name: 'Address Validation',
-        status: 'testing',
+        status: 'live',
         description: 'Verify and standardize shipping addresses',
         apiEndpoint: '/address/v1/addresses/resolve',
-        targetDate: 'August 2025'
+        completedDate: 'July 2025'
       },
       {
         name: 'Pickup Scheduling',

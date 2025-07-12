@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Hero } from '@/components/Hero'
 import { Features } from '@/components/landing/Features'
+import { BuildInPublic } from '@/components/landing/BuildInPublic'
 import { WaitlistSection } from '@/components/landing/WaitlistSection'
 import { Footer } from '@/components/Footer'
 
@@ -86,6 +87,7 @@ const Home: NextPage = () => {
       <main>
         <Hero />
         <Features />
+        <BuildInPublic />
         <WaitlistSection />
       </main>
       <Footer />

@@ -68,6 +68,10 @@ export function Hero() {
             <Link href="/calculator" className="btn-outline">
               Try Calculator <span aria-hidden="true">→</span>
             </Link>
+            <Link href="/address-validator" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors flex items-center gap-1">
+              <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">NEW</span>
+              Address Validator
+            </Link>
           </div>
 
           {/* Trust indicators */}
