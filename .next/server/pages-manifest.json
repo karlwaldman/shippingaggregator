@@ -1,5 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js"
-}
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/_document":"pages/_document.js","/api/analytics/test-api":"pages/api/analytics/test-api.js","/api/cloudflare/setup-dns":"pages/api/cloudflare/setup-dns.js","/api/ga-test":"pages/api/ga-test.js","/api/postmark/setup-domain":"pages/api/postmark/setup-domain.js","/api/postmark/test-email":"pages/api/postmark/test-email.js","/api/postmark/verify-setup":"pages/api/postmark/verify-setup.js","/api/rates/fedex":"pages/api/rates/fedex.js","/api/seo/submit-sitemap":"pages/api/seo/submit-sitemap.js","/api/subscribe":"pages/api/subscribe.js","/api/unsubscribe":"pages/api/unsubscribe.js","/api/verify-setup":"pages/api/verify-setup.js","/calculator":"pages/calculator.html","/cookies":"pages/cookies.html","/":"pages/index.html","/privacy":"pages/privacy.html","/terms":"pages/terms.html","/unsubscribe":"pages/unsubscribe.html","/robots.txt":"pages/robots.txt.js","/sitemap.xml":"pages/sitemap.xml.js","/404":"pages/404.html"}

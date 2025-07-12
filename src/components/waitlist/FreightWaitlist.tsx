@@ -203,7 +203,7 @@ export function FreightWaitlist({ className = '' }: FreightWaitlistProps) {
             </button>
             
             <p className="text-xs text-gray-500">
-              Join 500+ manufacturing companies on our waitlist. No spam, unsubscribe anytime.
+              Join our early access waitlist. No spam, unsubscribe anytime.
             </p>
           </form>
         </div>
@@ -304,7 +304,7 @@ function WaitlistThankYou() {
       <CheckIcon className="h-16 w-16 text-success mx-auto mb-6" />
       <h1 className="heading-lg mb-4">Welcome to the Waitlist!</h1>
       <p className="body-lg text-gray-600 mb-6">
-        You're now #<span className="font-bold text-primary">247</span> on our waitlist. 
+        You're now on our waitlist. 
         We'll email you as soon as the freight calculator launches in August 2025.
       </p>
       <div className="bg-gray-50 rounded-lg p-6">

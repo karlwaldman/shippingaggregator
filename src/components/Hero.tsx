@@ -68,9 +68,9 @@ export function Hero() {
           {/* Trust indicators */}
           <div className="mt-10 flex items-center gap-x-6 animate-slide-up" style={{ animationDelay: '0.3s' }}>
             <div className="flex -space-x-2">
-              {[1, 2, 3, 4, 5].map((i) => (
-                <div key={i} className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 ring-2 ring-white flex items-center justify-center text-white text-xs font-semibold">
-                  {i}K+
+              {['FX', 'UP', 'US', 'DH'].map((carrier) => (
+                <div key={carrier} className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 ring-2 ring-white flex items-center justify-center text-white text-xs font-semibold">
+                  {carrier}
                 </div>
               ))}
             </div>
