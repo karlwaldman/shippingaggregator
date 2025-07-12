@@ -23,11 +23,16 @@ export function Hero() {
           <Link href="/calculator" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
             Calculator
           </Link>
+          <Link href="/fedex-progress" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+            <span className="flex items-center gap-1">
+              FedEx Progress
+              <span className="inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
+                New
+              </span>
+            </span>
+          </Link>
           <Link href="#features" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
             Features
-          </Link>
-          <Link href="#how-it-works" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
-            How It Works
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">

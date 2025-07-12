@@ -12,6 +12,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
   const staticPages = [
     '',
     '/calculator',
+    '/fedex-progress',
     '/privacy',
     '/terms',
     '/cookies'
@@ -23,8 +24,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
 ${staticPages
   .map((page) => {
     const url = `${baseUrl}${page}`
-    const priority = page === '' ? '1.0' : page === '/calculator' ? '0.9' : '0.7'
-    const changefreq = page === '' ? 'weekly' : page === '/calculator' ? 'monthly' : 'yearly'
+    const priority = page === '' ? '1.0' : page === '/calculator' ? '0.9' : page === '/fedex-progress' ? '0.8' : '0.7'
+    const changefreq = page === '' ? 'weekly' : page === '/calculator' ? 'monthly' : page === '/fedex-progress' ? 'weekly' : 'yearly'
     
     return `  <url>
     <loc>${url}</loc>
