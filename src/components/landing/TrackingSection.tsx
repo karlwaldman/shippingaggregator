@@ -156,8 +156,8 @@ export function TrackingSection() {
             Track Any FedEx Package Instantly
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Enter any FedEx tracking number to see real-time delivery status, scan events, 
-            and delivery confirmations powered by live FedEx APIs.
+            Demo tracking functionality using FedEx sandbox API. In production, this would 
+            track real packages with live delivery status, scan events, and confirmations.
           </p>
         </div>
 
@@ -231,13 +231,12 @@ export function TrackingSection() {
 
               {result && (
                 <div className="space-y-6">
-                  {isMockData && (
-                    <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                      <p className="text-sm text-blue-800">
-                        <strong>Demo Mode:</strong> Using sample tracking data. Connect live FedEx API for real-time tracking.
-                      </p>
-                    </div>
-                  )}
+                  <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <p className="text-sm text-blue-800">
+                      <strong>Sandbox Demo:</strong> {isMockData ? 'Using sample data for demo.' : 'FedEx test API returns test tracking data, not real package info.'} 
+                      Production API would track real packages.
+                    </p>
+                  </div>
 
                   {/* Status Overview */}
                   <div className={`p-4 rounded-lg border ${getStatusColor(result.status)}`}>

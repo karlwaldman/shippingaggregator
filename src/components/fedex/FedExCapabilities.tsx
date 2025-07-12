@@ -30,10 +30,10 @@ const capabilities: Capability[] = [
       },
       {
         name: 'Transit Time Calculation',
-        status: 'testing',
+        status: 'live',
         description: 'Calculate delivery dates and service availability',
         apiEndpoint: '/availability/v1/transittimes',
-        targetDate: 'August 2025'
+        completedDate: 'July 2025'
       },
       {
         name: 'Service Availability',

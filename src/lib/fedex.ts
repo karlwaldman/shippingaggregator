@@ -14,7 +14,7 @@ export interface FedExRateRequest {
   width?: number
   height?: number
   packageType?: 'YOUR_PACKAGING' | 'FEDEX_BOX' | 'FEDEX_TUBE'
-  serviceType?: 'FEDEX_GROUND' | 'FEDEX_2_DAY' | 'FEDEX_EXPRESS_SAVER' | 'STANDARD_OVERNIGHT' | 'PRIORITY_OVERNIGHT'
+  serviceType?: 'FEDEX_GROUND' | 'FEDEX_2_DAY' | 'FEDEX_2_DAY_AM' | 'FEDEX_EXPRESS_SAVER' | 'STANDARD_OVERNIGHT' | 'PRIORITY_OVERNIGHT' | 'FIRST_OVERNIGHT'
 }
 
 export interface FedExRate {
@@ -25,6 +25,10 @@ export interface FedExRate {
   currency: string
   transitTime: string
   deliveryDate?: string
+  deliveryDay?: string // "Thu, Jul 17"
+  deliveryTime?: string // "by 8:00 AM"
+  rateType?: 'ACCOUNT' | 'LIST' // Account-specific vs List rates
+  businessDays?: number // 1, 2, 3 etc
 }
 
 // OAuth token management
@@ -163,32 +167,103 @@ export async function getFedExRates(request: FedExRateRequest): Promise<FedExRat
 
 // Mock data for when API is unavailable or in demo mode
 export function getMockFedExRates(request: FedExRateRequest): FedExRate[] {
-  const baseRate = Math.max(20, request.weight * 1.5)
+  // Calculate base rate more realistically based on weight and distance
+  const baseWeight = Math.max(1, request.weight)
+  const groundRate = Math.max(25, baseWeight * 3.5 + Math.random() * 5)
+  
+  // Calculate realistic delivery dates
+  const today = new Date()
+  const tomorrow = new Date(today)
+  tomorrow.setDate(today.getDate() + 1)
+  const dayAfter = new Date(today)
+  dayAfter.setDate(today.getDate() + 2)
+  const threeDays = new Date(today)
+  threeDays.setDate(today.getDate() + 3)
+  const fiveDays = new Date(today)
+  fiveDays.setDate(today.getDate() + 5)
+  
+  const formatDay = (date: Date) => {
+    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' })
+  }
   
   return [
     {
       carrier: 'FedEx',
-      serviceName: 'FedEx Ground',
-      serviceCode: 'FEDEX_GROUND',
-      totalCharge: baseRate,
+      serviceName: 'FedEx First Overnight®',
+      serviceCode: 'FIRST_OVERNIGHT',
+      totalCharge: Math.round(groundRate * 5.8 * 100) / 100,
       currency: 'USD',
-      transitTime: '3-5 business days'
+      transitTime: 'Next business day',
+      deliveryDate: tomorrow.toISOString(),
+      deliveryDay: formatDay(tomorrow),
+      deliveryTime: 'by 8:00 AM',
+      rateType: 'ACCOUNT',
+      businessDays: 1
     },
     {
       carrier: 'FedEx',
-      serviceName: 'FedEx 2Day',
-      serviceCode: 'FEDEX_2_DAY',
-      totalCharge: baseRate * 1.5,
+      serviceName: 'FedEx Priority Overnight®',
+      serviceCode: 'PRIORITY_OVERNIGHT',
+      totalCharge: Math.round(groundRate * 3.4 * 100) / 100,
       currency: 'USD',
-      transitTime: '2 business days'
+      transitTime: 'Next business day',
+      deliveryDate: tomorrow.toISOString(),
+      deliveryDay: formatDay(tomorrow),
+      deliveryTime: 'by 10:30 AM',
+      rateType: 'ACCOUNT',
+      businessDays: 1
     },
     {
       carrier: 'FedEx',
-      serviceName: 'FedEx Standard Overnight',
+      serviceName: 'FedEx Standard Overnight®',
       serviceCode: 'STANDARD_OVERNIGHT',
-      totalCharge: baseRate * 2.2,
+      totalCharge: Math.round(groundRate * 3.3 * 100) / 100,
       currency: 'USD',
-      transitTime: 'Next business day by 3pm'
+      transitTime: 'Next business day',
+      deliveryDate: tomorrow.toISOString(),
+      deliveryDay: formatDay(tomorrow),
+      deliveryTime: 'by 5:00 PM',
+      rateType: 'ACCOUNT',
+      businessDays: 1
+    },
+    {
+      carrier: 'FedEx',
+      serviceName: 'FedEx 2Day® AM',
+      serviceCode: 'FEDEX_2_DAY_AM',
+      totalCharge: Math.round(groundRate * 1.55 * 100) / 100,
+      currency: 'USD',
+      transitTime: '2 business days',
+      deliveryDate: dayAfter.toISOString(),
+      deliveryDay: formatDay(dayAfter),
+      deliveryTime: 'by 10:30 AM',
+      rateType: 'ACCOUNT',
+      businessDays: 2
+    },
+    {
+      carrier: 'FedEx',
+      serviceName: 'FedEx 2Day®',
+      serviceCode: 'FEDEX_2_DAY',
+      totalCharge: Math.round(groundRate * 1.25 * 100) / 100,
+      currency: 'USD',
+      transitTime: '2 business days',
+      deliveryDate: dayAfter.toISOString(),
+      deliveryDay: formatDay(dayAfter),
+      deliveryTime: 'by 5:00 PM',
+      rateType: 'ACCOUNT',
+      businessDays: 2
+    },
+    {
+      carrier: 'FedEx',
+      serviceName: 'FedEx Express Saver®',
+      serviceCode: 'FEDEX_EXPRESS_SAVER',
+      totalCharge: Math.round(groundRate * 1.04 * 100) / 100,
+      currency: 'USD',
+      transitTime: '3 business days',
+      deliveryDate: threeDays.toISOString(),
+      deliveryDay: formatDay(threeDays),
+      deliveryTime: 'by 5:00 PM',
+      rateType: 'ACCOUNT',
+      businessDays: 3
     }
   ]
 }
