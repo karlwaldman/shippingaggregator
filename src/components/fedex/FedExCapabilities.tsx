@@ -89,10 +89,10 @@ const capabilities: Capability[] = [
     features: [
       {
         name: 'Track by Number',
-        status: 'testing',
-        description: 'Real-time package tracking by tracking number',
+        status: 'live',
+        description: 'Real-time package tracking with detailed scan events',
         apiEndpoint: '/track/v1/trackingnumbers',
-        targetDate: 'August 2025'
+        completedDate: 'July 2025'
       },
       {
         name: 'Tracking Webhooks',

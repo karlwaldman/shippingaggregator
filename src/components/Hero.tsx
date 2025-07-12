@@ -46,11 +46,11 @@ export function Hero() {
       <div className="relative z-10 mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <div className="mt-24 sm:mt-32 lg:mt-16">
-            <span className="inline-flex items-center space-x-2 rounded-full bg-blue-600/10 px-3 py-1 text-sm font-semibold leading-6 text-blue-600 ring-1 ring-inset ring-blue-600/10">
+            <span className="inline-flex items-center space-x-2 rounded-full bg-green-600/10 px-3 py-1 text-sm font-semibold leading-6 text-green-600 ring-1 ring-inset ring-green-600/10">
               <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
               </svg>
-              <span>Save up to 30% on shipping</span>
+              <span>NEW: Live Package Tracking</span>
             </span>
           </div>
           <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl animate-slide-up">
@@ -58,7 +58,7 @@ export function Hero() {
             <span className="gradient-text">Instant Rate Comparison</span>
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600 animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            Compare real-time shipping rates from FedEx, UPS, USPS, and DHL in one place. 
+            Track packages and compare real-time shipping rates from FedEx, UPS, USPS, and DHL in one place. 
             Built for manufacturers who ship smart and save big.
           </p>
           <div className="mt-10 flex items-center gap-x-6 animate-slide-up" style={{ animationDelay: '0.2s' }}>

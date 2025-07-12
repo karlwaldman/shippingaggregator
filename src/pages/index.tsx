@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { Hero } from '@/components/Hero'
 import { Features } from '@/components/landing/Features'
+import { TrackingSection } from '@/components/landing/TrackingSection'
 import { AddressValidationSection } from '@/components/landing/AddressValidationSection'
 import { BuildInPublic } from '@/components/landing/BuildInPublic'
 import { WaitlistSection } from '@/components/landing/WaitlistSection'
@@ -14,7 +15,7 @@ const Home: NextPage = () => {
         <title>ShipNode - Multi-Carrier Shipping Optimization Platform</title>
         <meta 
           name="description" 
-          content="Compare shipping rates across all major carriers from one platform. ShipNode helps businesses save 15-30% on shipping costs with real-time rate comparison and optimization." 
+          content="Track packages and compare shipping rates across FedEx, UPS, USPS, DHL from one platform. Real-time package tracking, address validation, and rate comparison to save 15-30% on shipping costs." 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -64,11 +65,12 @@ const Home: NextPage = () => {
                 "availability": "https://schema.org/InStock"
               },
               "featureList": [
+                "Real-time package tracking",
                 "Multi-carrier rate comparison",
-                "Real-time shipping quotes", 
-                "FedEx, UPS, USPS, DHL integration",
+                "Address validation and standardization",
+                "FedEx, UPS, USPS, DHL integration", 
                 "Shipping cost optimization",
-                "Free rate calculator"
+                "Free tracking and rate tools"
               ],
               "audience": {
                 "@type": "Audience",
@@ -88,6 +90,7 @@ const Home: NextPage = () => {
       <main>
         <Hero />
         <Features />
+        <TrackingSection />
         <AddressValidationSection />
         <BuildInPublic />
         <WaitlistSection />
