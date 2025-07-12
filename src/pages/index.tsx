@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <title>FreightFlow - Manufacturing Freight Optimization Platform</title>
         <meta 
           name="description" 
-          content="Manufacturing SMBs save 15-25% on LTL & FTL shipping with our freight-first aggregation platform. Get instant quotes, ERP integration, and compliance automation." 
+          content="Join the waitlist for our manufacturing freight optimization platform launching Q1 2025. Built specifically for manufacturing SMBs to save 15-25% on LTL & FTL shipping." 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
