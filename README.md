@@ -2,7 +2,23 @@
 
 The central hub for multi-carrier shipping optimization. ShipNode helps businesses compare shipping rates, delivery times, and services across multiple carriers from one unified platform.
 
-## 🚀 Features
+🌐 **Live at**: [https://shipnode.io](https://shipnode.io)
+
+## 🚀 Current Status (July 2025)
+
+### ✅ Live Features
+- **FedEx Rate Calculator**: All 6 service levels with delivery dates/times
+- **FedEx Transit Times**: Business day calculations and service availability
+- **Address Validation**: FedEx address standardization and validation
+- **Package Tracking**: Real-time FedEx package tracking with detailed events
+
+### 🚧 In Development
+- USPS API integration (OAuth implementation in progress)
+- UPS rate calculation
+- Shipment creation and label generation
+- Multi-carrier comparison dashboard
+
+## 🎯 Features
 
 - **Multi-Carrier Rate Comparison**: Compare rates from FedEx, UPS, USPS, DHL, and more
 - **Real-Time Quotes**: Get live shipping quotes with delivery estimates
@@ -14,12 +30,12 @@ The central hub for multi-carrier shipping optimization. ShipNode helps business
 
 ## 🛠️ Tech Stack
 
-- **Backend**: Node.js with Express and TypeScript
-- **Database**: PostgreSQL with Redis caching
-- **Frontend**: React/Next.js (planned)
+- **Frontend**: Next.js 14 with TypeScript and Tailwind CSS
+- **Backend**: Next.js API Routes
+- **Deployment**: Vercel
 - **APIs**: RESTful with proper versioning
-- **Authentication**: JWT-based authentication
-- **Deployment**: Docker containers
+- **Authentication**: JWT-based (coming soon)
+- **Email**: Postmark for transactional emails
 
 ## 📋 Prerequisites
 
