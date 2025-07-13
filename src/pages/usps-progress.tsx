@@ -1,6 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Navigation from '@/components/Navigation'
+import Link from 'next/link'
+import Image from 'next/image'
 import USPSCapabilities from '@/components/usps/USPSCapabilities'
 
 const USPSProgressPage: NextPage = () => {
@@ -28,7 +29,35 @@ const USPSProgressPage: NextPage = () => {
       </Head>
 
       <div className="min-h-screen bg-gray-50">
-        <Navigation />
+        {/* Navigation */}
+        <nav className="relative z-10 flex items-center justify-between p-6 lg:px-8">
+          <div className="flex lg:flex-1">
+            <Link href="/" className="-m-1.5 p-1.5">
+              <Image src="/logo.svg" alt="ShipNode" width={180} height={45} className="h-10 w-auto" />
+            </Link>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-8">
+            <Link href="/calculator" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+              Calculator
+            </Link>
+            <Link href="/fedex-progress" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+              <span className="flex items-center gap-1">
+                FedEx Progress
+                <span className="inline-flex items-center rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800">
+                  New
+                </span>
+              </span>
+            </Link>
+            <Link href="#features" className="text-sm font-semibold leading-6 text-gray-900 hover:text-blue-600 transition-colors">
+              Features
+            </Link>
+          </div>
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+            <Link href="#waitlist" className="btn-primary text-sm">
+              Get Early Access <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
+        </nav>
         
         <main className="pt-16">
           {/* Hero Section */}

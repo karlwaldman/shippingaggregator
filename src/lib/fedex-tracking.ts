@@ -142,8 +142,8 @@ export async function trackFedExPackage(request: TrackingRequest): Promise<Track
           trackingNumber: request.trackingNumber,
           status,
           statusDescription: trackingDetails.latestStatusDetail?.description || 'In Transit',
-          estimatedDeliveryDate: trackingDetails.dateAndTimes?.find(d => d.type === 'ESTIMATED_DELIVERY')?.dateTime,
-          actualDeliveryDate: trackingDetails.dateAndTimes?.find(d => d.type === 'ACTUAL_DELIVERY')?.dateTime,
+          estimatedDeliveryDate: trackingDetails.dateAndTimes?.find((d: any) => d.type === 'ESTIMATED_DELIVERY')?.dateTime,
+          actualDeliveryDate: trackingDetails.dateAndTimes?.find((d: any) => d.type === 'ACTUAL_DELIVERY')?.dateTime,
           deliverySignedBy: trackingDetails.deliveryDetails?.deliveryAttempts?.[0]?.deliveryOptionEligibilityDetails?.signedBy,
           currentLocation: trackingDetails.scanEvents?.[0]?.scanLocation ? 
             `${trackingDetails.scanEvents[0].scanLocation.city}, ${trackingDetails.scanEvents[0].scanLocation.stateOrProvinceCode}` : undefined,
