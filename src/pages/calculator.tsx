@@ -8,18 +8,18 @@ const CalculatorPage: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Free Shipping Rate Calculator - ShipNode</title>
+        <title>Shipping Rate Calculator Coming Soon - Join Waitlist | ShipNode</title>
         <meta 
           name="description" 
-          content="Free shipping rate calculator - Get instant FedEx shipping rates. More carriers coming soon!" 
+          content="Join the waitlist for ShipNode's comprehensive shipping rate calculator. Compare rates from FedEx, UPS, USPS and more in one place." 
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         
-        {/* Additional meta for free calculator */}
-        <meta name="keywords" content="free shipping calculator, shipping rates, FedEx rates, shipping cost calculator" />
-        <meta property="og:title" content="Free Shipping Rate Calculator - ShipNode" />
-        <meta property="og:description" content="Get instant FedEx shipping rates with our free calculator. No signup required." />
+        {/* Additional meta for waitlist */}
+        <meta name="keywords" content="shipping rate calculator, multi-carrier shipping, FedEx UPS USPS rates, shipping comparison tool" />
+        <meta property="og:title" content="Shipping Rate Calculator Coming Soon - Join Waitlist | ShipNode" />
+        <meta property="og:description" content="Be the first to access our powerful shipping rate comparison tool. Join the waitlist today!" />
       </Head>
       
       <div className="min-h-screen bg-gray-50">

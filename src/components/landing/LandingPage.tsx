@@ -155,7 +155,7 @@ function EmailCaptureForm({ onSubmit, isSubmitting, errors, register }: any) {
       </button>
       
       <p className="text-xs text-gray-500 text-center">
-        No spam. Unsubscribe anytime. SOC 2 compliant.
+        No spam. Unsubscribe anytime.
       </p>
     </form>
   )
@@ -212,21 +212,7 @@ function SocialProofSection() {
   )
 }
 
-function TestimonialCard({ quote, author, title, company, savings }: any) {
-  return (
-    <div className="freight-rate-card">
-      <blockquote className="text-gray-700 mb-4">"{quote}"</blockquote>
-      <div className="flex items-center justify-between">
-        <div>
-          <div className="font-semibold text-gray-900">{author}</div>
-          <div className="text-sm text-gray-600">{title}</div>
-          <div className="text-sm text-gray-500">{company}</div>
-        </div>
-        <div className="savings-badge">{savings}</div>
-      </div>
-    </div>
-  )
-}
+// Testimonial component removed - no testimonials available yet
 
 function ProblemSolutionSection() {
   return (
@@ -343,7 +329,7 @@ function TrustSection() {
           </p>
           <div className="flex justify-center items-center space-x-12">
             <div className="text-sm text-gray-500">
-              <strong>SOC 2</strong> Specification Standards
+              <strong>Enterprise-grade</strong> Security Design
             </div>
             <div className="text-sm text-gray-500">
               <strong>GDPR</strong> Compliant Design

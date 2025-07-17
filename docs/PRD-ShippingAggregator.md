@@ -189,7 +189,7 @@ Frontend (React/Next.js)
 - **API Security**: Rate limiting, OAuth 2.0, request signing
 
 #### Compliance Requirements
-- **SOC 2 Type II**: Annual compliance audit and certification
+- **SOC 2 Principles**: Follow SOC 2 security standards in design and implementation
 - **GDPR**: Data protection and right to deletion implementation
 - **PCI DSS**: Secure payment data handling (if processing payments)
 - **Carrier Compliance**: Adherence to each carrier's terms and security requirements
@@ -214,7 +214,7 @@ Frontend (React/Next.js)
 - **User Engagement**: 80%+ of users create shipment within first week
 - **Feature Adoption**: 60%+ of users use rate comparison, 40% use analytics
 - **User Satisfaction**: 4.5+ star rating, <5% churn rate monthly
-- **Performance**: 99.9% uptime, <3 second average response time
+- **Performance**: Target high availability, <3 second average response time
 
 #### Business Impact Metrics
 - **Cost Savings**: 15-30% shipping cost reduction for SMB customers

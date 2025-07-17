@@ -54,7 +54,7 @@ Content-Type: application/json
 #### Production Environment
 - Base URL: `https://apis.usps.com`
 - Rate Limits: 60 calls/hour for default tier
-- SLA: 99.9% uptime
+- Target availability: High uptime expected
 
 #### Testing Environment  
 - Base URL: `https://apis-tem.usps.com`

@@ -119,13 +119,13 @@
 ### Non-Functional Requirements
 
 #### Performance Standards
-- **Availability**: 99.9% uptime SLA
+- **Availability**: Target high availability (specific SLA to be determined)
 - **Scalability**: Handle 100,000 concurrent rate requests
 - **Response Time**: <2s for rate quotes, <1s for tracking updates
 - **Throughput**: Process 50,000 shipments per hour peak capacity
 
 #### Security & Compliance
-- **Data Protection**: SOC 2 Type II compliance
+- **Data Protection**: Built following SOC 2 security principles
 - **Privacy**: GDPR and CCPA compliance
 - **API Security**: OAuth 2.0, rate limiting, encryption in transit/rest
 - **Audit**: Comprehensive logging and monitoring

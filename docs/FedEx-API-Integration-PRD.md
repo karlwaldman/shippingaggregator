@@ -32,7 +32,7 @@ This PRD outlines the comprehensive integration of FedEx APIs into our shipping 
 
 ### Success Metrics
 - Sub-2 second response times for rate calculations ✅ Achieved
-- 99.9% address validation accuracy ✅ Achieved
+- High address validation accuracy ✅ Achieved
 - Zero manual label generation for standard shipments (Target: Q3 2025)
 - 95% customer satisfaction with tracking experience (Target: Q4 2025)
 

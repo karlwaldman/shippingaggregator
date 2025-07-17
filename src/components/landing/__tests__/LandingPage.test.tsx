@@ -100,25 +100,11 @@ describe('LandingPage', () => {
   })
 
   describe('Social Proof Section', () => {
-    it('displays manufacturing-specific testimonials', () => {
+    it('shows cost savings potential', () => {
       render(<LandingPage />)
       
-      expect(screen.getByText(/operations manager/i)).toBeInTheDocument()
-      expect(screen.getByText(/plant manager/i)).toBeInTheDocument()
-    })
-
-    it('shows cost savings statistics', () => {
-      render(<LandingPage />)
-      
-      expect(screen.getByText(/\$25,000.*saved/i)).toBeInTheDocument()
-      expect(screen.getByText(/23%.*savings/i)).toBeInTheDocument()
-    })
-
-    it('includes manufacturing company logos', () => {
-      render(<LandingPage />)
-      
-      const logos = screen.getAllByRole('img', { name: /customer logo/i })
-      expect(logos.length).toBeGreaterThan(0)
+      expect(screen.getByText(/15-25%/i)).toBeInTheDocument()
+      expect(screen.getByText(/savings potential/i)).toBeInTheDocument()
     })
   })
 
@@ -161,7 +147,7 @@ describe('LandingPage', () => {
     it('displays security and compliance badges', () => {
       render(<LandingPage />)
       
-      expect(screen.getByText(/SOC 2/i)).toBeInTheDocument()
+      expect(screen.getByText(/enterprise-grade/i)).toBeInTheDocument()
       expect(screen.getByText(/enterprise-grade/i)).toBeInTheDocument()
     })
 
